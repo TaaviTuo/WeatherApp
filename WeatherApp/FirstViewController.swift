@@ -18,7 +18,7 @@ class FirstViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        fetchUrl(url: "https://api.openweathermap.org/data/2.5/weather?q=Tampere&APPID=87036b970b2794be14435c5af1d69ee7")
+        fetchUrl(url: "https://api.openweathermap.org/data/2.5/weather?q=Tampere&units=metric&APPID=87036b970b2794be14435c5af1d69ee7")
     }
     
     func fetchUrl(url : String) {
@@ -45,7 +45,7 @@ class FirstViewController: UIViewController {
         DispatchQueue.main.async(execute: {() in
             print(resstr!)
             self.cityName.text = weather.city
-            self.temperature.text = String(weather.main.temp) + "K"
+            self.temperature.text = String(weather.main.temp) + "C"
             self.fetchImageUrl(url: "https://openweathermap.org/img/w/\(weather.weather[0].icon).png")
         })
     }
@@ -80,7 +80,17 @@ class FirstViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         
-        fetchUrl(url: "https://api.openweathermap.org/data/2.5/weather?q=\(CityToFetch.city.toFetch)&APPID=87036b970b2794be14435c5af1d69ee7")
+        if CityToFetch.city.toFetch != "Use GPS" {
+            
+            fetchUrl(url: "https://api.openweathermap.org/data/2.5/weather?q=\(CityToFetch.city.toFetch)&units=metric&APPID=87036b970b2794be14435c5af1d69ee7")
+        } else if CityToFetch.city.toFetch == "Use GPS" {
+            
+            //TODO implement location fetching
+        } else {
+            
+            print("Something went wrong!")
+        }
+        
         
     }
 
