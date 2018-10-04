@@ -70,29 +70,50 @@
         <scene sceneID="3cz-K2-cUZ">
             <objects>
                 <viewController id="xyh-Yd-NHT" customClass="ThirdViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="oQ5-fS-XhS">
+                    <view key="view" contentMode="scaleToFill" id="rxD-L5-sCo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Km-u3-mOA">
+                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="wF6-uc-4cI">
+                                        <barButtonItem key="rightBarButtonItem" title="Edit" id="mpb-5H-CjM">
+                                            <connections>
+                                                <action selector="isEditing:" destination="xyh-Yd-NHT" id="MWl-gn-7jw"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TPA-Hd-2rN">
+                                <rect key="frame" x="0.0" y="64" width="414" height="623"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="623" id="26x-2H-eZw"/>
+                                </constraints>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellReuseIdentifier" id="eO6-RD-hSD">
-                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eO6-RD-hSD" id="4da-ot-I9q">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                    </tableView>
+                        <constraints>
+                            <constraint firstItem="7Km-u3-mOA" firstAttribute="top" secondItem="xzE-du-BJF" secondAttribute="top" id="3hr-8F-Qml"/>
+                            <constraint firstItem="7Km-u3-mOA" firstAttribute="trailing" secondItem="xzE-du-BJF" secondAttribute="trailing" id="S8d-TG-8HA"/>
+                            <constraint firstItem="TPA-Hd-2rN" firstAttribute="leading" secondItem="xzE-du-BJF" secondAttribute="leading" id="dnB-xt-EyK"/>
+                            <constraint firstItem="TPA-Hd-2rN" firstAttribute="trailing" secondItem="xzE-du-BJF" secondAttribute="trailing" id="fMH-oh-eNu"/>
+                            <constraint firstItem="7Km-u3-mOA" firstAttribute="top" secondItem="xzE-du-BJF" secondAttribute="top" id="h4Z-Mo-O3p"/>
+                            <constraint firstItem="7Km-u3-mOA" firstAttribute="leading" secondItem="xzE-du-BJF" secondAttribute="leading" id="m9M-YF-i5D"/>
+                            <constraint firstItem="TPA-Hd-2rN" firstAttribute="top" secondItem="7Km-u3-mOA" secondAttribute="bottom" id="nvy-h4-OBP"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="xzE-du-BJF"/>
+                    </view>
                     <tabBarItem key="tabBarItem" title="Third" id="rLS-YF-N1d"/>
                     <connections>
-                        <outlet property="tableView" destination="oQ5-fS-XhS" id="1Yl-Yt-ssJ"/>
+                        <outlet property="tableView" destination="TPA-Hd-2rN" id="bzT-xs-qDT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aD6-Sg-XPy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="749.60000000000002" y="1034.9325337331336"/>
+            <point key="canvasLocation" x="749.27536231884062" y="1166.5760869565217"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">

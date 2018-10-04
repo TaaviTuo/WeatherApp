@@ -10,29 +10,34 @@ import UIKit
 
 class ThirdViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellReuseIdentifier")! //1.
-        
-        let text = data[indexPath.row] //2.
-        
-        cell.textLabel?.text = text //3.
-        
-        return cell //4.
-    }
-    
-    
-    @IBOutlet var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     var data: [String] = ["Use GPS", "Tampere", "Helsinki"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
         self.tableView.dataSource = self
         self.tableView.delegate = self
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return data.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .default, reuseIdentifier: "someID")
+        cell.textLabel?.text = self.data[indexPath.row]
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            print("Deleted")
+            
+            self.data.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -40,5 +45,17 @@ class ThirdViewController: UIViewController, UITableViewDataSource, UITableViewD
         // Dispose of any resources that can be recreated.
     }
     
-    
+    @IBAction func isEditing(_ sender: Any) {
+        
+        if(self.tableView.isEditing == true)
+        {
+            self.tableView.isEditing = false
+            self.navigationItem.rightBarButtonItem?.title = "Done"
+        }
+        else
+        {
+            self.tableView.isEditing = true
+            self.navigationItem.rightBarButtonItem?.title = "Edit"
+        }
+    }
 }
