@@ -77,6 +77,12 @@ class FirstViewController: UIViewController {
             self.weatherImage.contentMode = .scaleAspectFit
         })
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        fetchUrl(url: "https://api.openweathermap.org/data/2.5/weather?q=\(CityToFetch.city.toFetch)&APPID=87036b970b2794be14435c5af1d69ee7")
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
