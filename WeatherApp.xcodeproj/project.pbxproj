@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D7B99C0921661691005133FB /* WeatherObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B99C0821661691005133FB /* WeatherObject.swift */; };
 		D7DA9E242164B606008FB14B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9E232164B606008FB14B /* AppDelegate.swift */; };
 		D7DA9E262164B606008FB14B /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9E252164B606008FB14B /* FirstViewController.swift */; };
 		D7DA9E282164B606008FB14B /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9E272164B606008FB14B /* SecondViewController.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D7B99C0821661691005133FB /* WeatherObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherObject.swift; sourceTree = "<group>"; };
 		D7DA9E202164B606008FB14B /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7DA9E232164B606008FB14B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7DA9E252164B606008FB14B /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 			children = (
 				D7DA9E232164B606008FB14B /* AppDelegate.swift */,
 				D7DA9E252164B606008FB14B /* FirstViewController.swift */,
+				D7B99C0821661691005133FB /* WeatherObject.swift */,
 				D7DA9E272164B606008FB14B /* SecondViewController.swift */,
 				D7DA9E292164B606008FB14B /* Main.storyboard */,
 				D7DA9E532164B953008FB14B /* ThirdViewController.swift */,
@@ -265,6 +268,7 @@
 				D7DA9E282164B606008FB14B /* SecondViewController.swift in Sources */,
 				D7DA9E242164B606008FB14B /* AppDelegate.swift in Sources */,
 				D7DA9E542164B953008FB14B /* ThirdViewController.swift in Sources */,
+				D7B99C0921661691005133FB /* WeatherObject.swift in Sources */,
 				D7DA9E262164B606008FB14B /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

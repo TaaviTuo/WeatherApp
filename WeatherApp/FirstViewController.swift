@@ -18,30 +18,64 @@ class FirstViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        fetchUrl(url: "https://api.openweathermap.org/data/2.5/weather?q=Tampere&APPID=87036b970b2794be14435c5af1d69ee7")
+    }
+    
+    func fetchUrl(url : String) {
+        let config = URLSessionConfiguration.default
         
-        func fetchUrl(url : String) {
-            let config = URLSessionConfiguration.default
-            
-            let session = URLSession(configuration: config)
-            
-            let url : URL? = URL(string:"https://api.openweathermap.org/data/2.5/weather?q=tampere&appid=87036b970b2794be14435c5af1d69ee7")
-            
-            let task = session.dataTask(with: url!, completionHandler: doneFetching);
-            
-            // Starts the task, spawns a new thread and calls the callback function
-            task.resume();
+        let session = URLSession(configuration: config)
+        
+        let url : URL? = URL(string: url)
+        
+        let task = session.dataTask(with: url!, completionHandler: doneFetching);
+        
+        // Starts the task, spawns a new thread and calls the callback function
+        task.resume();
+    }
+    
+    func doneFetching(data: Data?, response: URLResponse?, error: Error?) {
+        let resstr = String(data: data!, encoding: String.Encoding.utf8)
+        guard let weather = try? JSONDecoder().decode(WeatherObject.self, from: data!) else {
+            print("Error: Couldn't decode data into weather")
+            return
         }
         
-        func doneFetching(data: Data?, response: URLResponse?, error: Error?) {
-            let resstr = String(data: data!, encoding: String.Encoding.utf8)
-            
-            // Execute stuff in UI thread
-            DispatchQueue.main.async(execute: {() in
-                NSLog(resstr!)
-                
-            })
+        // Execute stuff in UI thread
+        DispatchQueue.main.async(execute: {() in
+            print(resstr!)
+            self.cityName.text = weather.city
+            self.temperature.text = String(weather.main.temp) + "K"
+            self.fetchImageUrl(url: "https://openweathermap.org/img/w/\(weather.weather[0].icon).png")
+        })
+    }
+    
+    func fetchImageUrl(url : String) {
+        let config = URLSessionConfiguration.default
+        
+        let session = URLSession(configuration: config)
+        
+        let url : URL? = URL(string: url)
+        
+        let task = session.dataTask(with: url!, completionHandler: doneFetchingImage);
+        
+        // Starts the task, spawns a new thread and calls the callback function
+        task.resume();
+    }
+    
+    func doneFetchingImage(data: Data?, response: URLResponse?, error: Error?) {
+        
+        guard let image = data else {
+            print("NO PICPICS")
+            return
         }
-
+        
+        // Execute stuff in UI thread
+        DispatchQueue.main.async(execute: {() in
+            
+            self.weatherImage.image = UIImage(data: image)
+            self.weatherImage.contentMode = .scaleAspectFit
+        })
     }
 
     override func didReceiveMemoryWarning() {
