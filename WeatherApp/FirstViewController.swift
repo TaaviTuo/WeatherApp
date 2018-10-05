@@ -35,7 +35,7 @@ class FirstViewController: UIViewController {
     }
     
     func doneFetching(data: Data?, response: URLResponse?, error: Error?) {
-        let resstr = String(data: data!, encoding: String.Encoding.utf8)
+        //let resstr = String(data: data!, encoding: String.Encoding.utf8)
         guard let weather = try? JSONDecoder().decode(WeatherObject.self, from: data!) else {
             print("Error: Couldn't decode data into weather")
             return
@@ -43,8 +43,8 @@ class FirstViewController: UIViewController {
         
         // Execute stuff in UI thread
         DispatchQueue.main.async(execute: {() in
-            print(resstr!)
-            self.cityName.text = weather.city
+            //print(resstr!)
+            self.cityName.text = weather.name
             self.temperature.text = String(weather.main.temp) + "C"
             self.fetchImageUrl(url: "https://openweathermap.org/img/w/\(weather.weather[0].icon).png")
         })

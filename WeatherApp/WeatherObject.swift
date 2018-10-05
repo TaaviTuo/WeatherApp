@@ -12,12 +12,14 @@ struct WeatherObject: Decodable {
     
     let weather: [WeatherInfo]
     let main: WeatherMain
-    let city: String
-    
+    let name: String
+    let dt_txt: String?
+
     enum CodingKeys : String, CodingKey {
         case weather
         case main
-        case city = "name"
+        case name
+        case dt_txt
     }
 }
 
@@ -27,13 +29,20 @@ struct WeatherInfo: Decodable {
     let main: String
     let description: String
     let icon: String
+    
+    enum CodingKeys : String, CodingKey {
+        case id
+        case main
+        case description
+        case icon
+    }
 }
 
 struct WeatherMain: Decodable {
     
     let temp: Double
-    let pressure: Int
-    let humidity: Int
-    let temp_min: Double
-    let temp_max: Double
+    
+    enum CodingKeys : String, CodingKey {
+        case temp
+    }
 }
