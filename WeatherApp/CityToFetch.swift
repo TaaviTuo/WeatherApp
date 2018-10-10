@@ -11,5 +11,6 @@ import Foundation
 public final class CityToFetch {
     
     static let city = CityToFetch()
-    var toFetch: String = ""
+    var toShow: String = "Current location"
+    var toFetch: String = "Use GPS"
 }

@@ -13,7 +13,7 @@ struct ForecastModel: Decodable {
     let list: [WeatherObject]
     
     enum CodingKeys : String, CodingKey {
-        case list = "list"
+        case list
     }
     
     init() {

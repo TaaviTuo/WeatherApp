@@ -6,11 +6,12 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--First-->
+        <!--Current-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,29 +19,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="THd-I1-bpH">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="THd-I1-bpH">
                                 <rect key="frame" x="87" y="304" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="City Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xlv-X3-DAJ">
-                                <rect key="frame" x="0.0" y="253" width="414" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xlv-X3-DAJ">
+                                <rect key="frame" x="8" y="253" width="398" height="43"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Temp K" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Viq-HN-n1c">
-                                <rect key="frame" x="0.0" y="440" width="414" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Viq-HN-n1c">
+                                <rect key="frame" x="8" y="440" width="398" height="43"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Xlv-X3-DAJ" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="8" id="6cs-zt-lVd"/>
+                            <constraint firstItem="THd-I1-bpH" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="N8j-8K-rmg"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="Viq-HN-n1c" secondAttribute="trailing" constant="8" id="Ofc-oe-bmf"/>
+                            <constraint firstItem="Xlv-X3-DAJ" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="P0j-cv-IXL"/>
+                            <constraint firstItem="Viq-HN-n1c" firstAttribute="top" secondItem="THd-I1-bpH" secondAttribute="bottom" constant="8" id="Pn2-ov-iEX"/>
+                            <constraint firstItem="Viq-HN-n1c" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="8" id="WtH-cD-cas"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="THd-I1-bpH" secondAttribute="trailing" constant="87" id="XzJ-hz-lni"/>
+                            <constraint firstItem="THd-I1-bpH" firstAttribute="centerY" secondItem="tsR-hK-woN" secondAttribute="centerY" id="abp-kH-yDN"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="Xlv-X3-DAJ" secondAttribute="trailing" constant="8" id="dVY-uW-5X1"/>
+                            <constraint firstItem="THd-I1-bpH" firstAttribute="top" secondItem="Xlv-X3-DAJ" secondAttribute="bottom" constant="8" id="eHK-mW-x0E"/>
+                            <constraint firstItem="THd-I1-bpH" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="87" id="ph3-nI-kBN"/>
+                            <constraint firstItem="Viq-HN-n1c" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="pzH-Y0-EfH"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Current" image="01d" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="cityName" destination="Xlv-X3-DAJ" id="KjD-4g-dt2"/>
                         <outlet property="temperature" destination="Viq-HN-n1c" id="gR2-si-fZU"/>
@@ -51,7 +63,7 @@
             </objects>
             <point key="canvasLocation" x="749.27536231884062" y="-320.38043478260875"/>
         </scene>
-        <!--Second-->
+        <!--Forecast-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -72,14 +84,14 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aWN-R9-fJR">
-                                            <rect key="frame" x="97" y="23.000000000000028" width="60" height="20"/>
+                                            <rect key="frame" x="97" y="23" width="317" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Weather" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oV0-3F-Yzb">
-                                            <rect key="frame" x="97" y="0.0" width="81" height="27"/>
+                                            <rect key="frame" x="97" y="0.0" width="317" height="27"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                             <nil key="textColor"/>
@@ -95,7 +107,7 @@
                             </tableViewCell>
                         </prototypes>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Forecast" image="01d" id="cPa-gy-q4n"/>
                     <connections>
                         <outlet property="tableView" destination="kTH-VX-gZa" id="21f-Cn-SHn"/>
                     </connections>
@@ -104,7 +116,7 @@
             </objects>
             <point key="canvasLocation" x="749.27536231884062" y="359.51086956521743"/>
         </scene>
-        <!--Third-->
+        <!--City List-->
         <scene sceneID="3cz-K2-cUZ">
             <objects>
                 <viewController id="xyh-Yd-NHT" customClass="ThirdViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -116,11 +128,18 @@
                                 <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                                 <items>
                                     <navigationItem title="Title" id="wF6-uc-4cI">
-                                        <barButtonItem key="rightBarButtonItem" title="Edit" id="mpb-5H-CjM">
-                                            <connections>
-                                                <action selector="isEditing:" destination="xyh-Yd-NHT" id="MWl-gn-7jw"/>
-                                            </connections>
-                                        </barButtonItem>
+                                        <rightBarButtonItems>
+                                            <barButtonItem title="Edit" id="mpb-5H-CjM">
+                                                <connections>
+                                                    <action selector="isEditing:" destination="xyh-Yd-NHT" id="MWl-gn-7jw"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem systemItem="add" id="CGa-LD-nr6">
+                                                <connections>
+                                                    <action selector="addLocation:" destination="xyh-Yd-NHT" id="d4K-f5-8Sf"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </rightBarButtonItems>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -144,7 +163,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xzE-du-BJF"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Third" id="rLS-YF-N1d"/>
+                    <tabBarItem key="tabBarItem" title="City List" image="01d" id="rLS-YF-N1d"/>
                     <connections>
                         <outlet property="tableView" destination="TPA-Hd-2rN" id="bzT-xs-qDT"/>
                     </connections>
@@ -174,7 +193,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
+        <image name="01d" width="50" height="50"/>
     </resources>
 </document>
